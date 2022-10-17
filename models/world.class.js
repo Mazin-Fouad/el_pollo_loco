@@ -14,18 +14,19 @@ class World {
 
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height); // clear canvas
-    this.ctx.drawImage(this.character.img, this.character.x, this.character.y, this.character.width, this.character.height);
+
+    this.addToMap(this.character);
 
     this.enemies.forEach((enemy) => {
-      this.ctx.drawImage(enemy.img, enemy.x, enemy.y, enemy.width, enemy.height);
+      this.addToMap(enemy);
     });
 
     this.clouds.forEach((cloud) => {
-      this.ctx.drawImage(cloud.img, cloud.x, cloud.y, cloud.width, cloud.height);
+      this.addToMap(cloud);
     });
 
     this.backgroundObjects.forEach((background) => {
-      this.ctx.drawImage(background.img, background.x, background.y, background.width, background.height);
+      this.addToMap(background);
     });
 
     // draw(); wird immer wieder aufgerufen
@@ -33,5 +34,9 @@ class World {
     requestAnimationFrame(function () {
       self.draw();
     });
+  }
+
+  addToMap(movable) {
+    this.ctx.drawImage(movable.img, movable.x, movable.y, movable.width, movable.height);
   }
 }
