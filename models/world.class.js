@@ -2,6 +2,7 @@ class World {
   character = new Character();
   enemies = [new Chicken(), new Chicken(), new Chicken()];
   clouds = [new Cloud()];
+  backgroundObjects = [new BackgroundObject('../img/5_background/layers/3_third_layer/1.png')];
   canvas;
   ctx;
 
@@ -21,6 +22,10 @@ class World {
 
     this.clouds.forEach((cloud) => {
       this.ctx.drawImage(cloud.img, cloud.x, cloud.y, cloud.width, cloud.height);
+    });
+
+    this.backgroundObjects.forEach((background) => {
+      this.ctx.drawImage(background.img, background.x, background.y, background.width, background.height);
     });
 
     // draw(); wird immer wieder aufgerufen
