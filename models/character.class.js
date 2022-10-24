@@ -1,6 +1,6 @@
 class Character extends MovableObject {
-  y = 140;
-  height = 295;
+  y = 170;
+  height = 255;
   width = 110;
   speed = 10;
   IMAGES_WALKING = [
@@ -30,6 +30,7 @@ class Character extends MovableObject {
         this.x -= this.speed;
         this.otherDirection = true;
       }
+      this.world.camera_x = -this.x;
     }, 1000 / 60);
 
     setInterval(() => {
