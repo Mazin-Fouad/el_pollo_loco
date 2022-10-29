@@ -7,13 +7,16 @@ class YellowChicken extends MovableObject {
   constructor() {
     super().loadImage(this.IMAGES_WALKING[0]);
     this.loadImages(this.IMAGES_WALKING);
-    this.x = 800 + Math.random() * 700;
+    this.x = 900 + Math.random() * 1000;
     this.speed = 0.15 + Math.random() * 0.25;
     this.animate();
   }
 
   animate() {
-    this.moveLeft();
+    setInterval(() => {
+      this.moveLeft();
+    }, 1000 / 60);
+
     setInterval(() => {
       this.playAnimation(this.IMAGES_WALKING);
     }, 200);
