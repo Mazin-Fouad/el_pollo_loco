@@ -27,6 +27,7 @@ class World {
     this.addToMap(this.character);
     this.addObjectsToMap(this.level.enemies);
     this.addObjectsToMap(this.level.clouds);
+    this.addObjectsToMap(this.level.coins);
 
     this.ctx.translate(-this.camera_x, 0);
     // draw(); wird immer wieder aufgerufen
@@ -49,7 +50,15 @@ class World {
       this.ctx.scale(-1, 1);
       movable.x = movable.x * -1;
     }
+
     this.ctx.drawImage(movable.img, movable.x, movable.y, movable.width, movable.height);
+
+    this.ctx.beginPath();
+    this.ctx.lineWidth = '5';
+    this.ctx.strokeStyle = 'blue';
+    this.ctx.rect(movable.x, movable.y, movable.width, movable.height);
+    this.ctx.stroke();
+
     if (movable.otherDirection) {
       movable.x = movable.x * -1;
       this.ctx.restore();
