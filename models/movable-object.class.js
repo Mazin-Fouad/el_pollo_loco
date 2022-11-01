@@ -43,6 +43,10 @@ class MovableObject {
     }
   }
 
+  isColliding(movable) {
+    return this.x + this.width > movable.x && this.y + this.height > movable.y && this.x < movable.x && this.y < movable.y + movable.height;
+  }
+
   /**
    *
    * @param {Array} arr ['img1.png', 'img2.png'...]
