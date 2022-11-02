@@ -10,13 +10,13 @@ canvas {
 
 /* Styling for Smartphones---------- */
 @media only screen and (max-width: 720px) {
-  canvas {
+  #canvas {
     width: 100%;
   }
 }
 
 @media only screen and (max-height: 480px) {
-  canvas {
+  #canvas {
     height: 100vh;
   }
 }
