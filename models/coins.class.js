@@ -1,7 +1,7 @@
 class Coin extends MovableObject {
   y = 330;
-  height = 150;
-  width = 150;
+  height = 120;
+  width = 120;
   IMAGES_COINS = ['../img/8_coin/coin_1.png', '../img/8_coin/coin_2.png'];
 
   constructor() {

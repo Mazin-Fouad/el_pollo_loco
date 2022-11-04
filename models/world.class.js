@@ -13,6 +13,7 @@ class World {
     this.draw();
     this.setWorld();
     this.checkCollisions();
+    this.checkCoinsCollisions();
   }
 
   setWorld() {
@@ -27,7 +28,18 @@ class World {
           this.character.hit();
         }
       });
-    }, 500);
+    }, 200);
+  }
+
+  checkCoinsCollisions() {
+    setInterval(() => {
+      this.level.coins.forEach((coin) => {
+        if (this.character.isColliding(coin)) {
+          console.log('Collision with Character coin', this.character.energy);
+          this.character.boost();
+        }
+      });
+    }, 200);
   }
 
   draw() {

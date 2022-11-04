@@ -11,6 +11,7 @@ class MovableObject {
   speedY = 0;
   acceleration = 2.5;
   energy = 100;
+  lastHit = 0;
 
   applyGravity() {
     setInterval(() => {
@@ -35,7 +36,7 @@ class MovableObject {
   }
 
   drawFrame(ctx) {
-    if (this instanceof Character || this instanceof Chicken || this instanceof YellowChicken) {
+    if (this instanceof Character || this instanceof Chicken || this instanceof YellowChicken || this instanceof Coin) {
       ctx.beginPath();
       ctx.lineWidth = '5';
       ctx.strokeStyle = 'blue';
@@ -52,11 +53,26 @@ class MovableObject {
     this.energy -= 5;
     if (this.energy < 0) {
       this.energy = 0;
+    } else {
+      this.lastHit = new Date().getTime();
     }
+  }
+
+  isHurt() {
+    let timePassed = new Date().getTime() - this.lastHit; // Difference in ms
+    timePassed = timePassed / 1000; // Difference in seconds
+    return timePassed < 1;
   }
 
   isDead() {
     return this.energy == 0;
+  }
+
+  boost() {
+    this.energy += 5;
+    if (this.energy > 100) {
+      this.energy = 100;
+    }
   }
 
   /**
@@ -72,7 +88,7 @@ class MovableObject {
   }
 
   playAnimation(images) {
-    let i = this.currentImage % this.IMAGES_WALKING.length; //0,1,2,3,4,5,0,1,2..
+    let i = this.currentImage % images.length; //0,1,2,3,4,5,0,1,2..
     let path = images[i];
     this.img = this.imageCache[path];
     this.currentImage++;
