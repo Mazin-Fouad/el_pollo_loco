@@ -6,6 +6,7 @@ class World {
   keyboard;
   camera_x = 0;
   statusBarHealt = new StatusbarHealth();
+  stausBarCoins = new StatusbarCoin();
 
   constructor(canvas, keyboard) {
     this.ctx = canvas.getContext('2d');
@@ -50,6 +51,7 @@ class World {
 
     this.addObjectsToMap(this.level.backgroundObjects);
     this.addToMap(this.statusBarHealt);
+    this.addToMap(this.stausBarCoins);
     this.addToMap(this.character);
     this.addObjectsToMap(this.level.enemies);
     this.addObjectsToMap(this.level.clouds);
