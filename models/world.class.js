@@ -1,12 +1,12 @@
 class World {
   character = new Character();
+  statusBarHealt = new StatusbarHealth();
+  stausBarCoins = new StatusbarCoin();
   level = level1;
   canvas;
   ctx;
   keyboard;
   camera_x = 0;
-  statusBarHealt = new StatusbarHealth();
-  stausBarCoins = new StatusbarCoin();
 
   constructor(canvas, keyboard) {
     this.ctx = canvas.getContext('2d');
@@ -50,8 +50,13 @@ class World {
     this.ctx.translate(this.camera_x, 0);
 
     this.addObjectsToMap(this.level.backgroundObjects);
+
+    // ---------- Space for fixed object --------- \\
+    this.ctx.translate(-this.camera_x, 0);
     this.addToMap(this.statusBarHealt);
     this.addToMap(this.stausBarCoins);
+    this.ctx.translate(this.camera_x, 0);
+    // ---------- Space for fixed object --------- \\
     this.addToMap(this.character);
     this.addObjectsToMap(this.level.enemies);
     this.addObjectsToMap(this.level.clouds);

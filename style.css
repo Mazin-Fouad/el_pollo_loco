@@ -14,7 +14,7 @@ canvas {
     width: 100%;
   }
 }
-
+/* Styling for Smartphones---------- */
 @media only screen and (max-height: 480px) {
   #canvas {
     height: 100vh;
