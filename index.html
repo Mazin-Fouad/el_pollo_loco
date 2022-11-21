@@ -4,30 +4,74 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <!-- JS Files -->
-    <script src="./models/drawable-object.class.js"></script>
-    <script src="./models/movable-object.class.js"></script>
-    <script src="./models/character.class.js"></script>
-    <script src="./models/chicken.class.js"></script>
-    <script src="./models/yellow-chicken.class.js"></script>
-    <script src="./models/cloud.class.js"></script>
-    <script src="./models/coins.class.js"></script>
-    <script src="./models/statusbar-health.class.js"></script>
-    <script src="./models/statusbar-coins.class.js"></script>
-    <script src="./models/world.class.js"></script>
-    <script src="./models/background-object.class.js"></script>
-    <script src="./models/keyboard.class.js"></script>
-    <script src="./models/level.class.js"></script>
-    <script src="./models/endboss.class.js"></script>
-    <script src="./levels/level1.js"></script>
-    <script src="./js/game.js"></script>
-    <!-- //JS Files// -->
-    <title>El Pollo Loco</title>
+    <title>ElPolloLoco</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="./img/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="./img/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- Favicon -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Love+Ya+Like+A+Sister&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <script src="models/world.class.js"></script>
+    <script src="models/drawable-object.class.js"></script>
+    <script src="models/movable-object.class.js"></script>
+    <script src="models/character.class.js"></script>
+    <script src="models/chicken.class.js"></script>
+    <script src="models/clouds.class.js"></script>
+    <script src="models/keyboard.class.js"></script>
+    <script src="models/level.class.js"></script>
+    <script src="models/endboss.class.js"></script>
+    <script src="models/status-bar.class.js"></script>
+    <script src="models/background-object.class.js"></script>
+    <script src="models/throwable-object.class.js"></script>
+    <script src="models/collectable-objects.class.js"></script>
+    <script src="models/endscreens-object.class.js"></script>
+    <script src="levels/level1.js"></script>
+    <script src="js/game.js"></script>
   </head>
-  <body onload="init()">
-    <!-- <h1>El Pollo Loco</h1> -->
 
-    <canvas id="canvas" width="720" height="480"> </canvas>
+  <body>
+    <h1>El Pollo Loco</h1>
+
+    <!-- <div id="instructions" onclick="hideInstructions()" class="instructions">
+        <div class="instBoard">
+            <ul>
+                <li>
+                    Move left with the A key
+                </li>
+                <li>
+                    Move Right with the D key
+                </li>
+                <li>
+                    Jump with Space
+                </li>
+                <li>
+                    Throw bottles with Enter
+                </li>
+            </ul>
+            <button onclick="hideInstructions()"> OK </button>
+        </div>
+    </div> -->
+
+    <div id="gameArea">
+      <div class="gameStart">
+        <img class="gameImg" src="img/9.Intro _ Outro Image/Start Screen/Opción 1.png" />
+
+        <div id="buttons">
+          <button class="startGameBtn" id="startGame" onclick="startGame()">Play</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

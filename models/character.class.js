@@ -1,89 +1,81 @@
 class Character extends MovableObject {
-  y = 20;
-  height = 255;
-  width = 110;
-  speed = 10;
-  IMAGES_WALKING = [
-    'img/2_character_pepe/2_walk/W-21.png',
-    'img/2_character_pepe/2_walk/W-22.png',
-    'img/2_character_pepe/2_walk/W-23.png',
-    'img/2_character_pepe/2_walk/W-24.png',
-    'img/2_character_pepe/2_walk/W-25.png',
-    'img/2_character_pepe/2_walk/W-26.png',
-  ];
-  IMAGES_JUMPING = [
-    '../img/2_character_pepe/3_jump/J-31.png',
-    '../img/2_character_pepe/3_jump/J-32.png',
-    '../img/2_character_pepe/3_jump/J-33.png',
-    '../img/2_character_pepe/3_jump/J-34.png',
-    '../img/2_character_pepe/3_jump/J-35.png',
-    '../img/2_character_pepe/3_jump/J-36.png',
-    '../img/2_character_pepe/3_jump/J-37.png',
-    '../img/2_character_pepe/3_jump/J-38.png',
-    '../img/2_character_pepe/3_jump/J-39.png',
-  ];
-  IMAGES_DEAD = [
-    '../img/2_character_pepe/5_dead/D-51.png',
-    '../img/2_character_pepe/5_dead/D-52.png',
-    '../img/2_character_pepe/5_dead/D-53.png',
-    '../img/2_character_pepe/5_dead/D-54.png',
-    '../img/2_character_pepe/5_dead/D-55.png',
-    '../img/2_character_pepe/5_dead/D-56.png',
-    '../img/2_character_pepe/5_dead/D-57.png',
-  ];
-  IMAGES_HURT = ['../img/2_character_pepe/4_hurt/H-41.png', '../img/2_character_pepe/4_hurt/H-42.png', '../img/2_character_pepe/4_hurt/H-43.png'];
-  world;
-  WALKING_SOUND = new Audio('../audio/character-walking.mp3');
-  JUMPING_SOUND = new Audio('../audio/character-jumping.mp3');
 
-  constructor() {
-    super().loadImage('../img/2_character_pepe/2_walk/W-21.png');
-    this.loadImages(this.IMAGES_WALKING);
-    this.loadImages(this.IMAGES_JUMPING);
-    this.loadImages(this.IMAGES_DEAD);
-    this.loadImages(this.IMAGES_HURT);
-    this.applyGravity();
-    this.animate();
-  }
+    IMAGES_WALKING = [
+        'img/2.Secuencias_Personaje-Pepe-corrección/2.Secuencia_caminata/W-21.png',
+        'img/2.Secuencias_Personaje-Pepe-corrección/2.Secuencia_caminata/W-22.png',
+        'img/2.Secuencias_Personaje-Pepe-corrección/2.Secuencia_caminata/W-23.png',
+        'img/2.Secuencias_Personaje-Pepe-corrección/2.Secuencia_caminata/W-24.png',
+        'img/2.Secuencias_Personaje-Pepe-corrección/2.Secuencia_caminata/W-25.png',
+        'img/2.Secuencias_Personaje-Pepe-corrección/2.Secuencia_caminata/W-26.png'
+    ]
 
-  animate() {
-    setInterval(() => {
-      this.WALKING_SOUND.pause();
-      if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
-        this.moveRight();
-        this.otherDirection = false;
-        this.WALKING_SOUND.play();
-      }
+    IMAGES_JUMPING = [
+        'img/2.Secuencias_Personaje-Pepe-corrección/3.Secuencia_salto/J-31.png',
+        'img/2.Secuencias_Personaje-Pepe-corrección/3.Secuencia_salto/J-32.png',
+        'img/2.Secuencias_Personaje-Pepe-corrección/3.Secuencia_salto/J-33.png',
+        'img/2.Secuencias_Personaje-Pepe-corrección/3.Secuencia_salto/J-34.png',
+        'img/2.Secuencias_Personaje-Pepe-corrección/3.Secuencia_salto/J-35.png',
+        'img/2.Secuencias_Personaje-Pepe-corrección/3.Secuencia_salto/J-36.png',
+        'img/2.Secuencias_Personaje-Pepe-corrección/3.Secuencia_salto/J-37.png',
+        'img/2.Secuencias_Personaje-Pepe-corrección/3.Secuencia_salto/J-38.png',
+        'img/2.Secuencias_Personaje-Pepe-corrección/3.Secuencia_salto/J-39.png'
+    ];
 
-      if (this.world.keyboard.LEFT && this.x > 0) {
-        this.moveLeft();
-        this.otherDirection = true;
-        this.WALKING_SOUND.play();
-      }
+    IMAGES_SHADOW = [
+        'img/2.Secuencias_Personaje-Pepe-corrección/3.Secuencia_salto/J-40.png'
+    ]
 
-      if (this.world.keyboard.SPACE && !this.isAboveGround()) {
-        this.jump();
-        this.WALKING_SOUND.play();
-      }
+    IMAGES_DEAD = [
+        'img/2.Secuencias_Personaje-Pepe-corrección/5.Muerte/D-51.png',
+        'img/2.Secuencias_Personaje-Pepe-corrección/5.Muerte/D-52.png',
+        'img/2.Secuencias_Personaje-Pepe-corrección/5.Muerte/D-53.png',
+        'img/2.Secuencias_Personaje-Pepe-corrección/5.Muerte/D-54.png',
+        'img/2.Secuencias_Personaje-Pepe-corrección/5.Muerte/D-55.png',
+        'img/2.Secuencias_Personaje-Pepe-corrección/5.Muerte/D-56.png'
+    ];
 
-      this.world.camera_x = -this.x + 90;
-    }, 1000 / 60);
+    IMAGES_HURT = [
+        'img/2.Secuencias_Personaje-Pepe-corrección/4.Herido/H-41.png',
+        'img/2.Secuencias_Personaje-Pepe-corrección/4.Herido/H-42.png',
+        'img/2.Secuencias_Personaje-Pepe-corrección/4.Herido/H-43.png'
+    ];
 
-    setInterval(() => {
-      if (this.isDead()) {
-        //Play Dead animation
-        this.playAnimation(this.IMAGES_DEAD);
-      } else if (this.isHurt()) {
-        this.playAnimation(this.IMAGES_HURT);
-      } else if (this.isAboveGround()) {
-        //Play Jump animation
-        this.playAnimation(this.IMAGES_JUMPING);
-      } else {
-        if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-          //play walk animation
-          this.playAnimation(this.IMAGES_WALKING);
-        }
-      }
-    }, 50);
-  }
+    currentImage = 0;
+    world;
+    speed = 8;
+    x = 0;
+    walking_sound = new Audio('audio/running.mp3');
+    jumping_sound = new Audio('audio/jump.mp3');
+    characterHit_sound = new Audio('audio/characterHit.mp3')
+    y = 360;
+    heigth = 300;
+    width = 200;
+    amountBottles = 0;
+    amountCoins = 0;
+    bottlesThrown = 0;
+
+
+    constructor() {
+        super().loadImage('img/2.Secuencias_Personaje-Pepe-corrección/2.Secuencia_caminata/W-21.png');
+        this.loadImages(this.IMAGES_WALKING);
+        this.loadImages(this.IMAGES_JUMPING);
+        this.loadImages(this.IMAGES_DEAD);
+        this.loadImages(this.IMAGES_HURT);
+        this.loadImages(this.IMAGES_SHADOW);
+        this.animate();
+        this.applyGravity();
+    }
+
+    animate() {
+        /**
+         * moving the character and playing walkingsound
+         */
+        this.checkCharactermovement();
+
+        /**
+         * animations
+         */
+        this.animateMovement();
+    };
+
 }
