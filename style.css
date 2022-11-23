@@ -13,6 +13,7 @@ body {
   font-family: 'Love Ya Like A Sister', cursive;
   color: #171414;
   font-family: 'zabras', Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -84,6 +85,10 @@ button {
 }
 /***** Mobile Styling *****/
 @media (max-width: 720px) {
+  body {
+    overflow-x: hidden;
+  }
+
   canvas {
     width: 100%;
     height: auto;
@@ -121,8 +126,9 @@ button {
   margin-top: -20px;
   min-width: 720px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  gap: 20%;
 }
 
 .panel-holder {
@@ -136,8 +142,8 @@ button {
 }
 
 .mobilePanels button {
-  width: 55px;
-  height: 55px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   margin-left: 10px;
 }
@@ -162,11 +168,20 @@ button {
   bottom: 65px;
 }
 
+.instructions {
+  display: flex;
+  justify-content: center;
+}
+
 .instructions ul {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .instructions ul li {
   font-size: 30px;
   letter-spacing: 5;
+  margin-bottom: 4px;
 }

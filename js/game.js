@@ -2,9 +2,9 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 
-function hideInstructions() {
-  document.getElementById('instructions').style.display = 'none';
-}
+// function hideInstructions() {
+//   document.getElementById('instructions').style.display = 'none';
+// }
 /**
  * add canvas and start game with new World
  */
@@ -15,6 +15,7 @@ function startGame() {
   world = new World(canvas, keyboard);
   world.canvas.height = 739;
   world.canvas.width = 1280;
+  bindBtsPressEvent();
 }
 
 function restart() {
@@ -55,7 +56,7 @@ function addElPolloLoco() {
  */
 function gameOver() {
   buttons = document.getElementById('buttons');
-  buttons.innerHTML = `
+  buttons.innerHTML = /*html*/ `
     <button onclick="restart()">Restart</button>
     `;
 }
@@ -95,6 +96,9 @@ window.addEventListener('keyup', (e) => {
   }
 });
 
+/**
+ * Mobile Character Control
+ */
 function bindBtsPressEvent() {
   document.getElementById('left').addEventListener('touchstart', (e) => {
     e.preventDefault();
