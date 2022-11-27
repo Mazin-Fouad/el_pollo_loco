@@ -2,9 +2,6 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 
-// function hideInstructions() {
-//   document.getElementById('instructions').style.display = 'none';
-// }
 /**
  * add canvas and start game with new World
  */
