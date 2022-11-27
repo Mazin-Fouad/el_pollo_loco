@@ -85,19 +85,12 @@ button {
 }
 /***** Mobile Styling *****/
 @media (max-width: 720px) {
-  body {
-    overflow-x: hidden;
-  }
-
   canvas {
     width: 100%;
-    height: auto;
-    overflow-x: hidden;
   }
 
   .gameStart img {
     width: 100%;
-    height: auto;
   }
 
   h1 {
@@ -110,7 +103,6 @@ button {
   body {
     height: 100vh;
     margin: 0;
-    overflow: hidden;
   }
 
   canvas {
