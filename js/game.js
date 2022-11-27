@@ -24,6 +24,7 @@ function restart() {
  * @returns html code to display the canvas and add the fullscreen button
  */
 function addElPolloLoco() {
+  initLevel();
   return /*html*/ `
     <div class="gameStart">
     <canvas id="canvas">
