@@ -42,8 +42,11 @@ function addElPolloLoco() {
           </div>
 
           <div class="panel-holder">
-            <button onclick="muteGameSounds()" id="muteButton"><img id="muteIcon" src="img/icons/mute.png"></button>
+          <button onclick="muteGameSounds()" id="muteButton"><img id="muteIcon" src="img/icons/mute.png"></button>
             <button onclick="playGameSounds()" id="audiosButton" class="d-none"><img id="soundIcon" src="img/icons/volume.png"></button>
+          </div>
+
+          <div class="panel-holder">
             <button id="up" class="mobile-btn"><img src="img/icons/up-arrow .png" /></button>
             <button id="throw" class="mobile-btn"><img src="img/icons/forward.png" /></button>
           </div>
