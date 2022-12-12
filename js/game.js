@@ -1,6 +1,8 @@
 let canvas;
 let world;
 let keyboard = new Keyboard();
+let muted = false;
+let soundBtn = document.getElementById('muteButton');
 
 /**
  * add canvas and start game with new World
@@ -33,7 +35,6 @@ function addElPolloLoco() {
     <div id="buttons">
     <button onclick="fullscreen()">Fullscreen</button>
     </div>
-
     <div class="mobilePanels">
           <div class="panel-holder">
             <button id="left" class="mobile-btn"><img src="img/icons/left-arrow .png" /></button>
@@ -41,9 +42,12 @@ function addElPolloLoco() {
           </div>
 
           <div class="panel-holder">
+            <button onclick="muteGameSounds()" id="muteButton"><img id="muteIcon" src="img/icons/mute.png"></button>
+            <button onclick="playGameSounds()" id="audiosButton" class="d-none"><img id="soundIcon" src="img/icons/volume.png"></button>
             <button id="up" class="mobile-btn"><img src="img/icons/up-arrow .png" /></button>
             <button id="throw" class="mobile-btn"><img src="img/icons/forward.png" /></button>
           </div>
+         
         </div>
     </div>
     `;
@@ -55,7 +59,7 @@ function addElPolloLoco() {
 function gameOver() {
   buttons = document.getElementById('buttons');
   buttons.innerHTML = /*html*/ `
-    <button onclick="restart()">Restart</button>
+    <button class="btns" onclick="restart()">Restart</button>
     `;
 }
 
@@ -144,4 +148,16 @@ function bindBtsPressEvent() {
  */
 function fullscreen() {
   canvas.requestFullscreen();
+}
+
+function muteGameSounds() {
+  muted = true;
+  document.getElementById('muteButton').classList.add('d-none');
+  document.getElementById('audiosButton').classList.remove('d-none');
+}
+
+function playGameSounds() {
+  muted = false;
+  document.getElementById('muteButton').classList.remove('d-none');
+  document.getElementById('audiosButton').classList.add('d-none');
 }

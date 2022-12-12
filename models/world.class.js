@@ -95,7 +95,9 @@ class World {
       if (bottle.isColliding(enemy)) {
         enemy.hit();
         bottle.collided = true;
-        bottle.bottleHit_sound.play();
+        if (!muted) {
+          bottle.bottleHit_sound.play();
+        }
       }
     });
   }
@@ -110,7 +112,9 @@ class World {
         bottle.y = -300;
         this.character.amountBottles++;
         this.bottleBar.setPercentage((this.character.amountBottles / this.level.collectableBottles.length) * 100, 'bottles');
-        bottle.collectBottle_sound.play();
+        if (!muted) {
+          bottle.collectBottle_sound.play();
+        }
       }
     });
   }
@@ -121,7 +125,9 @@ class World {
   collectCoin() {
     this.level.collectableCoins.forEach((coin) => {
       if (this.character.isColliding(coin)) {
-        coin.coin_sound.play();
+        if (!muted) {
+          coin.coin_sound.play();
+        }
         coin.x = -300;
         coin.y = -300;
         this.character.amountCoins++;
@@ -188,7 +194,9 @@ class World {
    * draw the game over screen when game over and pause music
    */
   renderGameOver() {
-    this.level.levelBgMusic[0].play();
+    if (!muted) {
+      this.level.levelBgMusic[0].play();
+    }
     // this.level.levelBgMusic[0].pause();
     this.addObjectToMap(this.level.endscreen);
     gameOver();

@@ -180,7 +180,9 @@ class MovableObject extends DrawableObject {
   goRight() {
     if (this.world.keyboard.RIGHT && !this.isDead()) {
       if (!this.isAbove()) {
-        this.walking_sound.play();
+        if (!muted) {
+          this.walking_sound.play();
+        }
       }
       this.moveRight();
     }
@@ -195,7 +197,7 @@ class MovableObject extends DrawableObject {
         this.moveLeft();
         this.otherDirection = true;
       }
-      if (!this.isAbove()) {
+      if (!this.isAbove() && !muted) {
         this.walking_sound.play();
       }
     }
@@ -209,7 +211,9 @@ class MovableObject extends DrawableObject {
       //&& this.y >=360
       this.jump();
       this.enableJump = true;
-      this.jumping_sound.play();
+      if (!muted) {
+        this.jumping_sound.play();
+      }
     }
   }
 
@@ -521,7 +525,7 @@ class MovableObject extends DrawableObject {
    */
   hitCharacter() {
     this.energy -= 2;
-    if (this.energy > 2) {
+    if (this.energy > 2 && !muted) {
       this.characterHit_sound.play();
     }
   }
@@ -533,7 +537,7 @@ class MovableObject extends DrawableObject {
     this.energy -= 3;
     if (this.energy <= 1) {
       this.defeatedEndboss_sound.play();
-    } else if (this.energy > 3) {
+    } else if (this.energy > 3 && !muted) {
       this.hitChicken_sound.play();
     }
     //console.log(this.energy)
@@ -544,7 +548,9 @@ class MovableObject extends DrawableObject {
    */
   hitChicken() {
     this.energy -= 100;
-    this.hitChicken_sound.play();
+    if (!muted) {
+      this.hitChicken_sound.play();
+    }
   }
 
   /**
