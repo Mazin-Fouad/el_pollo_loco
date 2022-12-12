@@ -535,7 +535,7 @@ class MovableObject extends DrawableObject {
    */
   hitEndboss() {
     this.energy -= 3;
-    if (this.energy <= 1) {
+    if (this.energy <= 1 && !muted) {
       this.defeatedEndboss_sound.play();
     } else if (this.energy > 3 && !muted) {
       this.hitChicken_sound.play();
