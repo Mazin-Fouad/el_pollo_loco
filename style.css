@@ -118,6 +118,15 @@ button {
     bottom: 12.5rem;
     right: -3rem;
   }
+
+  .mobilePanels {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 4%;
+    position: absolute;
+    bottom: 1%;
+  }
 }
 
 @media (min-width: 330px) and (max-width: 720px) {
@@ -169,15 +178,6 @@ button {
   h1 {
     display: none;
   }
-}
-
-.mobilePanels {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4%;
-  position: absolute;
-  bottom: 1%;
 }
 
 .panel-holder {

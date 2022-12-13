@@ -35,7 +35,7 @@ function addElPolloLoco() {
     <div id="buttons">
     <button onclick="fullscreen()">Fullscreen</button>
     </div>
-    <div class="mobilePanels">
+    <div class="mobilePanels d-none">
           <div class="panel-holder">
             <button id="left" class="mobile-btn"><img src="img/icons/left-arrow .png" /></button>
             <button id="right" class="mobile-btn"><img src="img/icons/arrow-point-to-right.png" /></button>
