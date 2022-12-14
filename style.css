@@ -119,13 +119,8 @@ button {
     right: -3rem;
   }
 
-  .mobilePanels {
+  .panel-holder {
     display: flex !important;
-    justify-content: center;
-    align-items: center;
-    gap: 4%;
-    position: absolute;
-    bottom: 1%;
   }
 }
 
@@ -180,9 +175,18 @@ button {
   }
 }
 
-.panel-holder {
+.mobilePanels {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4%;
+  position: absolute;
+  bottom: 1%;
 }
+
+/* .panel-holder {
+  display: flex;
+} */
 
 .panel-holder button {
   display: flex;

@@ -495,11 +495,15 @@ class MovableObject extends DrawableObject {
    * @param {object} mo
    * @returns
    */
+  // isColliding(mo) {
+  //   return (
+  //     (this.x + this.width > mo.x && this.y + this.heigth > mo.y && this.x < mo.x && this.y < mo.y + mo.heigth) ||
+  //     (this.x > mo.x && this.x < mo.x + mo.width && this.y + this.heigth > mo.y && this.y < mo.y + mo.heigth)
+  //   );
+  // }
+
   isColliding(mo) {
-    return (
-      (this.x + this.width > mo.x && this.y + this.heigth > mo.y && this.x < mo.x && this.y < mo.y + mo.heigth) ||
-      (this.x > mo.x && this.x < mo.x + mo.width && this.y + this.heigth > mo.y && this.y < mo.y + mo.heigth)
-    );
+    return this.x + this.width > mo.x && this.y + this.heigth > mo.y && this.x < mo.x && this.y < mo.y + mo.heigth;
   }
 
   /**

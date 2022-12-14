@@ -35,8 +35,8 @@ function addElPolloLoco() {
     <div id="buttons">
     <button onclick="fullscreen()">Fullscreen</button>
     </div>
-    <div class="mobilePanels d-none">
-          <div class="panel-holder">
+    <div class="mobilePanels">
+          <div class="panel-holder d-none">
             <button id="left" class="mobile-btn"><img src="img/icons/left-arrow .png" /></button>
             <button id="right" class="mobile-btn"><img src="img/icons/arrow-point-to-right.png" /></button>
           </div>
@@ -46,7 +46,7 @@ function addElPolloLoco() {
             <button onclick="playGameSounds()" id="audiosButton" class="d-none"><img id="soundIcon" src="img/icons/volume.png"></button>
           </div>
 
-          <div class="panel-holder">
+          <div class="panel-holder d-none">
             <button id="up" class="mobile-btn"><img src="img/icons/up-arrow .png" /></button>
             <button id="throw" class="mobile-btn"><img src="img/icons/forward.png" /></button>
           </div>
