@@ -64,7 +64,7 @@ class World {
    * @param {element} enemy
    */
   jumpOnHead(enemy) {
-    if (this.character.isColliding(enemy) && this.character.y > this.character.lastHeight && enemy instanceof Chicken && !enemy.isDead()) {
+    if (this.character.isColliding(enemy) && this.character.y > this.character.lastHeight && this.character.lastHeight && this.character.isAbove() && enemy instanceof Chicken && !enemy.isDead()) {
       enemy.hit();
       this.character.speedY = 15;
       this.character.lastHeight = this.character.y;

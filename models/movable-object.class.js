@@ -20,6 +20,8 @@ class MovableObject extends DrawableObject {
       if (this.isAbove()) {
         this.y -= this.speedY;
         this.speedY -= this.acceleration;
+      } else {
+        this.y = 360;
       }
     }, 1000 / 25);
   }
@@ -495,16 +497,16 @@ class MovableObject extends DrawableObject {
    * @param {object} mo
    * @returns
    */
-  // isColliding(mo) {
-  //   return (
-  //     (this.x + this.width > mo.x && this.y + this.heigth > mo.y && this.x < mo.x && this.y < mo.y + mo.heigth) ||
-  //     (this.x > mo.x && this.x < mo.x + mo.width && this.y + this.heigth > mo.y && this.y < mo.y + mo.heigth)
-  //   );
-  // }
-
   isColliding(mo) {
-    return this.x + this.width > mo.x && this.y + this.heigth > mo.y && this.x < mo.x && this.y < mo.y + mo.heigth;
+    return (
+      (this.x + this.width > mo.x && this.y + this.heigth > mo.y && this.x < mo.x && this.y < mo.y + mo.heigth) ||
+      (this.x > mo.x && this.x < mo.x + mo.width && this.y + this.heigth > mo.y && this.y < mo.y + mo.heigth)
+    );
   }
+
+  // isColliding(mo) {
+  //   return this.x + this.width > mo.x && this.y + this.heigth > mo.y && this.x < mo.x && this.y < mo.y + mo.heigth;
+  // }
 
   /**
    * making damage

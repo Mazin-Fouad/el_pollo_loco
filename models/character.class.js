@@ -50,7 +50,6 @@ class Character extends MovableObject {
   amountBottles = 0;
   amountCoins = 0;
   bottlesThrown = 0;
-  mute = false;
 
   constructor() {
     super().loadImage('img/2.Secuencias_Personaje-Pepe-corrección/2.Secuencia_caminata/W-21.png');
