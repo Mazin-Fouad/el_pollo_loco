@@ -39,8 +39,6 @@ function addElPolloLoco() {
           <div id="panelHolder1" class="panel-holder d-none">
             <button id="left" class="mobile-btn"><img src="img/icons/left-arrow .png" /></button>
             <button id="throw" class="mobile-btn"><img src="img/icons/forward.png" /></button>
-
-            <!-- <button id="right" class="mobile-btn"><img src="img/icons/arrow-point-to-right.png" /></button> -->
           </div>
 
           <div class="panel-holder">
@@ -50,7 +48,6 @@ function addElPolloLoco() {
 
           <div id="panelHolder2" class="panel-holder d-none">
             <button id="up" class="mobile-btn"><img src="img/icons/up-arrow .png" /></button>
-            <!-- <button id="throw" class="mobile-btn"><img src="img/icons/forward.png" /></button> -->
             <button id="right" class="mobile-btn"><img src="img/icons/arrow-point-to-right.png" /></button>
           </div>
          
