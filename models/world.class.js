@@ -197,7 +197,6 @@ class World {
     if (!muted) {
       this.level.levelBgMusic[0].play();
     }
-    // this.level.levelBgMusic[0].pause();
     this.addObjectToMap(this.level.endscreen);
     gameOver();
   }
@@ -243,10 +242,6 @@ class World {
     if (mo.otherDirection) {
       mo.reMirrorImage(this.ctx);
     }
-    // painting rectangle
-    // if (mo instanceof Chicken || mo instanceof Character || mo instanceof Endboss) {
-    //     mo.drawFrame(this.ctx)
-    // }
   }
 
   setWorld() {

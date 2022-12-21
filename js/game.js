@@ -38,16 +38,16 @@ function addElPolloLoco() {
     <div class="mobilePanels">
           <div id="panelHolder1" class="panel-holder d-none">
             <button id="left" class="mobile-btn"><img src="img/icons/left-arrow .png" /></button>
-            <button id="throw" class="mobile-btn"><img src="img/icons/forward.png" /></button>
+            <button id="up" class="mobile-btn"><img src="img/icons/up-arrow .png" /></button>
           </div>
 
           <div class="panel-holder">
-          <button onclick="muteGameSounds()" id="muteButton"><img id="muteIcon" src="img/icons/mute.png"></button>
-            <button onclick="playGameSounds()" id="audiosButton" class="d-none"><img id="soundIcon" src="img/icons/volume.png"></button>
+          <button onclick="muteGameSounds()" id="muteButton"><img id="muteIcon" src="img/icons/volume.png"></button>
+            <button onclick="playGameSounds()" id="audiosButton" class="d-none"><img id="soundIcon" src="img/icons/mute.png"></button>
           </div>
 
           <div id="panelHolder2" class="panel-holder d-none">
-            <button id="up" class="mobile-btn"><img src="img/icons/up-arrow .png" /></button>
+            <button id="throw" class="mobile-btn"><img src="img/icons/forward.png" /></button>
             <button id="right" class="mobile-btn"><img src="img/icons/arrow-point-to-right.png" /></button>
           </div>
          
@@ -104,6 +104,16 @@ window.addEventListener('keyup', (e) => {
  * Mobile Character Control
  */
 function bindBtsPressEvent() {
+  bindBtnLeft();
+  bindBtnRight();
+  bindBtnUp();
+  bindBtnThrow();
+}
+
+/**
+ * Character moves left in mobile mode
+ */
+function bindBtnLeft() {
   document.getElementById('left').addEventListener('touchstart', (e) => {
     e.preventDefault();
     keyboard.LEFT = true;
@@ -113,7 +123,12 @@ function bindBtsPressEvent() {
     e.preventDefault();
     keyboard.LEFT = false;
   });
+}
 
+/**
+ * Character moves right in mobile mode
+ */
+function bindBtnRight() {
   document.getElementById('right').addEventListener('touchstart', (e) => {
     e.preventDefault();
     keyboard.RIGHT = true;
@@ -123,7 +138,12 @@ function bindBtsPressEvent() {
     e.preventDefault();
     keyboard.RIGHT = false;
   });
+}
 
+/**
+ * Character jumps in mobile mode
+ */
+function bindBtnUp() {
   document.getElementById('up').addEventListener('touchstart', (e) => {
     e.preventDefault();
     keyboard.UP = true;
@@ -133,7 +153,12 @@ function bindBtsPressEvent() {
     e.preventDefault();
     keyboard.UP = false;
   });
+}
 
+/**
+ * Character throws bottole in mobile mode
+ */
+function bindBtnThrow() {
   document.getElementById('throw').addEventListener('touchstart', (e) => {
     e.preventDefault();
     keyboard.ENTER = true;

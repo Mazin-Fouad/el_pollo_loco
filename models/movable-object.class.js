@@ -461,18 +461,6 @@ class MovableObject extends DrawableObject {
   }
 
   /**
-   * draw a frame arround and object (visual hitbox)
-   * @param {context} ctx
-   */
-  // drawFrame(ctx) {
-  //     ctx.beginPath();
-  //     ctx.lineWidth = "5";
-  //     ctx.strokeStyle = "blue";
-  //     ctx.rect(this.x, this.y, this.width, this.heigth);
-  //     ctx.stroke();
-  // }
-
-  /**
    * mirroring the image when walking in the other direction
    * @param {context} ctx
    */
@@ -503,10 +491,6 @@ class MovableObject extends DrawableObject {
       (this.x > mo.x && this.x < mo.x + mo.width && this.y + this.heigth > mo.y && this.y < mo.y + mo.heigth)
     );
   }
-
-  // isColliding(mo) {
-  //   return this.x + this.width > mo.x && this.y + this.heigth > mo.y && this.x < mo.x && this.y < mo.y + mo.heigth;
-  // }
 
   /**
    * making damage
