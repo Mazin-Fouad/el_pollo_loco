@@ -78,7 +78,8 @@ class World {
   enemieHurtCharacter(enemy) {
     if (this.character.isColliding(enemy) && enemy.energy > 0) {
       if (enemy instanceof Chicken && this.character.y >= this.character.lastHeight) {
-        return 0;
+        this.character.hit();
+        this.healthBar.setPercentage(this.character.energy, 'health');
       } else {
         this.character.hit();
         this.healthBar.setPercentage(this.character.energy, 'health');

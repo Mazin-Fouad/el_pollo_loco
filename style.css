@@ -92,6 +92,37 @@ button {
 }
 /***** Mobile Styling *****/
 @media (max-width: 720px) {
+  .turn-device-info {
+    display: block !important;
+    z-index: 3;
+    position: absolute;
+    top: 38.5%;
+    left: 50%;
+    transform: translate(-38.5%, -50%);
+    background-color: #424242;
+    border-radius: 5px;
+    padding: 0.3em;
+    font-size: 1.5em;
+    color: bisque;
+    letter-spacing: 2px;
+    animation: fadeIn 3s infinite ease-in-out;
+    text-transform: uppercase;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 0.9;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
   h1 {
     display: none;
   }
@@ -182,6 +213,12 @@ button {
   #panelHolder1,
   #panelHolder2 {
     display: flex !important;
+  }
+}
+
+@media (orientation: landscape) {
+  .turn-device-info {
+    display: none !important;
   }
 }
 

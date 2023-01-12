@@ -530,7 +530,6 @@ class MovableObject extends DrawableObject {
     } else if (this.energy > 3 && !muted) {
       this.hitChicken_sound.play();
     }
-    //console.log(this.energy)
   }
 
   /**
